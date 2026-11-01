@@ -3,6 +3,8 @@ name: GitHub Cloud Test
 on:
   push:
     branches: [ main ]
+permissions:
+  contents: read    
 
 jobs:
   deploy:
