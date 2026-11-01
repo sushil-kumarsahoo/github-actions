@@ -1,0 +1,22 @@
+name: GitHub Cloud Test
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build and Run Docker Containers
+        run: docker compose up -d --build
+
+      - name: Check Running Containers
+        run: docker compose ps
+
+      - name: Check Logs
+        run: docker compose logs
